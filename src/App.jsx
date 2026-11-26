@@ -10,26 +10,33 @@ import {
   ArrowRight,
   Clock,
   MessageCircle,
+  ExternalLink,
 } from 'lucide-react'
 
 const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xqpqnndv'
-const WHATSAPP_NUMBER = '2348000000000'
+const WHATSAPP_NUMBER = '2348152205995'
 const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
-  'Hello, I would like to enquire about vehicle repair or servicing.'
+  'Hello Scouch Autos Ltd, I would like to enquire about vehicle repair, servicing, or fleet maintenance.'
 )}`
+const DIRECTIONS_URL =
+  'https://www.google.com/maps/search/?api=1&query=No+10+Pipeline+Rukpakulushi+Forte+Oil+Station+Eliozu+Bridge+Port+Harcourt'
 
 const services = [
   {
-    title: 'Diagnostics & Mechanical Repair',
-    desc: 'Engine fault scanning, suspension, brakes, transmission, and drivetrain repairs for daily drivers and commercial vehicles.',
+    title: 'General Vehicle Servicing & Maintenance',
+    desc: 'Routine servicing, oil and filter changes, diagnostics, and mechanical repairs to keep daily drivers road-ready.',
   },
   {
-    title: 'Scheduled Servicing & Fleet Care',
-    desc: 'Preventive maintenance plans tailored for corporate fleets, business operations, and government vehicles.',
+    title: 'Tyre & Wheel Services',
+    desc: 'Tyre replacement, wheel alignment, balancing, and inspection for safe handling and even tread wear.',
   },
   {
-    title: 'Electrical & Cooling Systems',
-    desc: 'Battery testing, alternators, wiring diagnostics, and A/C servicing built for tough road conditions.',
+    title: 'Fleet Maintenance Contracts',
+    desc: 'Structured maintenance and priority turnaround support for corporate fleets, business accounts, and government vehicles.',
+  },
+  {
+    title: 'Oven-Baked Spray Painting',
+    desc: 'Clean refinishing and oven-baked spray paint work to restore bodywork appearance and durability.',
   },
 ]
 
@@ -68,7 +75,7 @@ export default function App() {
       <header className="sticky top-0 z-20 border-b border-slate-800 bg-slate-950/90 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
           <a href="#top" className="text-lg font-bold tracking-tight text-white">
-            [COMPANY NAME]
+            Scouch Autos Ltd
           </a>
           <nav className="hidden gap-6 text-sm text-slate-300 md:flex">
             <a href="#about" className="transition hover:text-white">
@@ -101,13 +108,13 @@ export default function App() {
         <div className="mx-auto max-w-4xl">
           <p className="inline-flex items-center gap-2 rounded-full border border-amber-500/30 bg-amber-500/10 px-3.5 py-1 text-xs font-medium text-amber-300">
             <MapPin className="h-3.5 w-3.5 shrink-0" />
-            No. 10 Pipeline, Rukpakulushi (Behind Fort Oil, Near Eliozu Bridge), Port Harcourt
+            No. 10 Pipeline, Rukpakulushi (Behind Forte Oil Station, Near Eliozu Bridge), Port Harcourt
           </p>
           <h1 className="mt-6 text-4xl font-bold tracking-tight text-white sm:text-5xl">
-            Reliable Car Repair &amp; Servicing in Port Harcourt
+            Your Vehicle, Our Priority
           </h1>
           <p className="mt-4 max-w-2xl text-lg text-slate-300">
-            Trusted workshop care for individuals, corporate fleets, business accounts, and government vehicles.
+            Dependable auto servicing, tyres and wheels, oven-baked spray painting, and fleet maintenance in Port Harcourt for individuals, companies, fleet owners, and government agencies.
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
             <a
@@ -126,10 +133,12 @@ export default function App() {
               Chat on WhatsApp
             </a>
             <a
-              href="#services"
-              className="rounded-lg border border-slate-700 px-5 py-3 text-sm font-semibold text-slate-200 transition hover:border-slate-500 hover:text-white"
+              href={DIRECTIONS_URL}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 rounded-lg border border-slate-700 px-5 py-3 text-sm font-semibold text-slate-200 transition hover:border-slate-500 hover:text-white"
             >
-              Explore Services
+              Get Directions <ExternalLink className="h-4 w-4" />
             </a>
           </div>
         </div>
@@ -139,23 +148,21 @@ export default function App() {
       <section id="about" className="border-b border-slate-800 px-6 py-16">
         <div className="mx-auto grid max-w-6xl items-center gap-10 md:grid-cols-2">
           <div>
-            <h2 className="text-2xl font-bold text-white">About the Workshop</h2>
+            <h2 className="text-2xl font-bold text-white">About Scouch Autos Ltd</h2>
             <p className="mt-4 leading-relaxed text-slate-300">
-              Located off Pipeline Road in Rukpakulushi near Eliozu Bridge, our facility focuses on honest diagnostics,
-              dependable turnaround times, and structured servicing for private motorists, companies, fleet owners, and
-              government agencies.
+              Based at No. 10 Pipeline, Rukpakulushi (behind Forte Oil Station, near Eliozu Bridge) in Port Harcourt, Scouch Autos Ltd delivers practical workshop care, transparent fault checks, and structured maintenance for private motorists, corporate fleets, business operators, and government agencies.
             </p>
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
             <div className="rounded-xl border border-slate-800 bg-slate-900/60 p-5">
               <Wrench className="h-5 w-5 text-amber-400" />
-              <h3 className="mt-3 font-semibold text-white">Hands-On Technicians</h3>
-              <p className="mt-1 text-sm text-slate-400">Clear fault findings before repair work begins.</p>
+              <h3 className="mt-3 font-semibold text-white">Workshop &amp; Paint Care</h3>
+              <p className="mt-1 text-sm text-slate-400">Servicing, tyres, and oven-baked spray painting under one roof.</p>
             </div>
             <div className="rounded-xl border border-slate-800 bg-slate-900/60 p-5">
               <ShieldCheck className="h-5 w-5 text-amber-400" />
-              <h3 className="mt-3 font-semibold text-white">Fleet &amp; Org Ready</h3>
-              <p className="mt-1 text-sm text-slate-400">Built for repeat servicing and multi-vehicle care.</p>
+              <h3 className="mt-3 font-semibold text-white">Fleet &amp; Org Contracts</h3>
+              <p className="mt-1 text-sm text-slate-400">Built for corporate fleets, businesses, and government vehicles.</p>
             </div>
           </div>
         </div>
@@ -164,11 +171,11 @@ export default function App() {
       {/* Services */}
       <section id="services" className="border-b border-slate-800 px-6 py-16">
         <div className="mx-auto max-w-6xl">
-          <h2 className="text-2xl font-bold text-white">Core Services</h2>
+          <h2 className="text-2xl font-bold text-white">Our Services</h2>
           <p className="mt-2 text-sm text-slate-400">
-            Comprehensive maintenance and mechanical repair tailored to your vehicle type.
+            Tailored automotive solutions for individual drivers, fleets, and institutional accounts.
           </p>
-          <div className="mt-8 grid gap-6 md:grid-cols-3">
+          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {services.map((item) => (
               <div
                 key={item.title}
@@ -188,12 +195,11 @@ export default function App() {
           <div>
             <h2 className="text-2xl font-bold text-white">Workshop &amp; Bay Showcase</h2>
             <p className="mt-1 text-sm text-slate-400">
-              Swap in real workshop and vehicle photos from <code className="text-amber-300">public/images/</code> once
-              received.
+              Drop final high-resolution workshop and spray-booth photos into <code className="text-amber-300">public/images/</code> when provided.
             </p>
           </div>
           <div className="mt-8 grid gap-6 sm:grid-cols-3">
-            {['Service Bay', 'Diagnostics & Repair', 'Showroom / Drop-Off'].map((label) => (
+            {['Service Bay', 'Oven-Baked Spray Booth', 'Tyre & Fleet Drop-Off'].map((label) => (
               <div
                 key={label}
                 className="flex h-52 items-center justify-center rounded-xl border border-dashed border-slate-700 bg-slate-900/50 text-sm font-medium text-slate-400"
@@ -212,16 +218,18 @@ export default function App() {
             <div>
               <h2 className="text-2xl font-bold text-white">Visit or Contact Us</h2>
               <p className="mt-3 text-slate-300">
-                Stop by the workshop or send an enquiry and our team will follow up with availability and next steps.
+                Visit our workshop in Rukpakulushi or send an enquiry for vehicle servicing, spray painting, or fleet maintenance.
               </p>
               <ul className="mt-6 space-y-4 text-sm text-slate-300">
                 <li className="flex items-start gap-3">
                   <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-amber-400" />
-                  <span>No. 10 Pipeline, Rukpakulushi, behind Fort Oil station near Eliozu Bridge, Port Harcourt</span>
+                  <span>No. 10 Pipeline, Rukpakulushi, behind Forte Oil Station, near Eliozu Bridge, Port Harcourt</span>
                 </li>
                 <li className="flex items-center gap-3">
                   <Phone className="h-4 w-4 shrink-0 text-amber-400" />
-                  <span>[PHONE NUMBER PENDING]</span>
+                  <a href="tel:+2348152205995" className="hover:text-white">
+                    +234 815 220 5995
+                  </a>
                 </li>
                 <li className="flex items-center gap-3">
                   <Mail className="h-4 w-4 shrink-0 text-amber-400" />
@@ -236,7 +244,7 @@ export default function App() {
 
             <div className="overflow-hidden rounded-xl border border-slate-800 bg-slate-900">
               <iframe
-                title="Workshop Location Near Eliozu Bridge, Port Harcourt"
+                title="Scouch Autos Ltd Location Near Eliozu Bridge, Port Harcourt"
                 src="https://www.google.com/maps?q=Eliozu+Bridge,+Port+Harcourt,+Rivers&output=embed"
                 className="h-60 w-full border-0"
                 loading="lazy"
@@ -245,12 +253,12 @@ export default function App() {
               <div className="flex items-center justify-between border-t border-slate-800 px-4 py-3 text-xs text-slate-400">
                 <span>No. 10 Pipeline, Rukpakulushi (Near Eliozu Bridge)</span>
                 <a
-                  href="https://www.google.com/maps/search/?api=1&query=Eliozu+Bridge,+Port+Harcourt,+Rivers"
+                  href={DIRECTIONS_URL}
                   target="_blank"
                   rel="noreferrer"
                   className="font-medium text-amber-400 hover:text-amber-300"
                 >
-                  Open in Maps
+                  Get Directions
                 </a>
               </div>
             </div>
@@ -280,7 +288,7 @@ export default function App() {
                 name="contact"
                 type="text"
                 required
-                placeholder="name@company.com or 080..."
+                placeholder="name@company.com or 0815..."
                 className="mt-1 w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-white focus:border-amber-500 focus:outline-none"
               />
             </div>
@@ -310,7 +318,7 @@ export default function App() {
                 name="message"
                 rows={3}
                 required
-                placeholder="Tell us about your vehicle or fleet servicing request..."
+                placeholder="Servicing, tyres, spray painting, or fleet maintenance request..."
                 className="mt-1 w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-white focus:border-amber-500 focus:outline-none"
               />
             </div>
@@ -326,14 +334,14 @@ export default function App() {
             {status === 'sent' && (
               <p className="flex items-center gap-2 text-sm text-emerald-400">
                 <CheckCircle2 className="h-4 w-4 shrink-0" />
-                Enquiry sent successfully. Our workshop team will reach out shortly.
+                Enquiry sent successfully. Scouch Autos Ltd will reach out shortly.
               </p>
             )}
 
             {status === 'error' && (
               <p className="flex items-center gap-2 text-sm text-rose-400">
                 <AlertCircle className="h-4 w-4 shrink-0" />
-                Could not send right now. Verify your Formspree ID or contact us directly.
+                Could not send right now. Please try again or call +234 815 220 5995.
               </p>
             )}
           </form>
@@ -343,8 +351,8 @@ export default function App() {
       {/* Footer */}
       <footer className="border-t border-slate-800 bg-slate-950 px-6 py-8">
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 text-xs text-slate-400 sm:flex-row">
-          <p>© {new Date().getFullYear()} [COMPANY NAME]. All rights reserved.</p>
-          <p>No. 10 Pipeline, Rukpakulushi, Port Harcourt, Rivers State</p>
+          <p>© {new Date().getFullYear()} Scouch Autos Ltd. All rights reserved.</p>
+          <p>No. 10 Pipeline, Rukpakulushi, Near Eliozu Bridge, Port Harcourt</p>
         </div>
       </footer>
 
@@ -353,7 +361,7 @@ export default function App() {
         href={WHATSAPP_URL}
         target="_blank"
         rel="noreferrer"
-        aria-label="Chat on WhatsApp"
+        aria-label="Chat with Scouch Autos Ltd on WhatsApp"
         className="fixed bottom-5 right-5 z-30 inline-flex items-center gap-2 rounded-full bg-emerald-500 px-4 py-3 text-sm font-semibold text-slate-950 shadow-lg transition hover:bg-emerald-400"
       >
         <MessageCircle className="h-4 w-4" />
