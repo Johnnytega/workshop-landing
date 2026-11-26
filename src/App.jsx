@@ -9,9 +9,14 @@ import {
   AlertCircle,
   ArrowRight,
   Clock,
+  MessageCircle,
 } from 'lucide-react'
 
 const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xqpqnndv'
+const WHATSAPP_NUMBER = '2348000000000'
+const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+  'Hello, I would like to enquire about vehicle repair or servicing.'
+)}`
 
 const services = [
   {
@@ -99,7 +104,7 @@ export default function App() {
             No. 10 Pipeline, Rukpakulushi (Behind Fort Oil, Near Eliozu Bridge), Port Harcourt
           </p>
           <h1 className="mt-6 text-4xl font-bold tracking-tight text-white sm:text-5xl">
-            Reliable Car Repair & Servicing in Port Harcourt
+            Reliable Car Repair &amp; Servicing in Port Harcourt
           </h1>
           <p className="mt-4 max-w-2xl text-lg text-slate-300">
             Trusted workshop care for individuals, corporate fleets, business accounts, and government vehicles.
@@ -110,6 +115,15 @@ export default function App() {
               className="inline-flex items-center gap-2 rounded-lg bg-amber-500 px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-amber-400"
             >
               Visit or Enquire <ArrowRight className="h-4 w-4" />
+            </a>
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 rounded-lg bg-emerald-500 px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-emerald-400"
+            >
+              <MessageCircle className="h-4 w-4" />
+              Chat on WhatsApp
             </a>
             <a
               href="#services"
@@ -140,7 +154,7 @@ export default function App() {
             </div>
             <div className="rounded-xl border border-slate-800 bg-slate-900/60 p-5">
               <ShieldCheck className="h-5 w-5 text-amber-400" />
-              <h3 className="mt-3 font-semibold text-white">Fleet & Org Ready</h3>
+              <h3 className="mt-3 font-semibold text-white">Fleet &amp; Org Ready</h3>
               <p className="mt-1 text-sm text-slate-400">Built for repeat servicing and multi-vehicle care.</p>
             </div>
           </div>
@@ -172,7 +186,7 @@ export default function App() {
       <section id="showcase" className="border-b border-slate-800 px-6 py-16">
         <div className="mx-auto max-w-6xl">
           <div>
-            <h2 className="text-2xl font-bold text-white">Workshop & Bay Showcase</h2>
+            <h2 className="text-2xl font-bold text-white">Workshop &amp; Bay Showcase</h2>
             <p className="mt-1 text-sm text-slate-400">
               Swap in real workshop and vehicle photos from <code className="text-amber-300">public/images/</code> once
               received.
@@ -194,29 +208,52 @@ export default function App() {
       {/* Contact & Enquiry Form */}
       <section id="contact" className="px-6 py-16">
         <div className="mx-auto grid max-w-6xl gap-10 md:grid-cols-2">
-          <div>
-            <h2 className="text-2xl font-bold text-white">Visit or Contact Us</h2>
-            <p className="mt-3 text-slate-300">
-              Stop by the workshop or send an enquiry and our team will follow up with availability and next steps.
-            </p>
-            <ul className="mt-6 space-y-4 text-sm text-slate-300">
-              <li className="flex items-start gap-3">
-                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-amber-400" />
-                <span>No. 10 Pipeline, Rukpakulushi, behind Fort Oil station near Eliozu Bridge, Port Harcourt</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <Phone className="h-4 w-4 shrink-0 text-amber-400" />
-                <span>[PHONE NUMBER PENDING]</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <Mail className="h-4 w-4 shrink-0 text-amber-400" />
-                <span>[COMPANY EMAIL PENDING]</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <Clock className="h-4 w-4 shrink-0 text-amber-400" />
-                <span>Mon – Sat: 8:00 AM – 6:00 PM</span>
-              </li>
-            </ul>
+          <div className="space-y-6">
+            <div>
+              <h2 className="text-2xl font-bold text-white">Visit or Contact Us</h2>
+              <p className="mt-3 text-slate-300">
+                Stop by the workshop or send an enquiry and our team will follow up with availability and next steps.
+              </p>
+              <ul className="mt-6 space-y-4 text-sm text-slate-300">
+                <li className="flex items-start gap-3">
+                  <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-amber-400" />
+                  <span>No. 10 Pipeline, Rukpakulushi, behind Fort Oil station near Eliozu Bridge, Port Harcourt</span>
+                </li>
+                <li className="flex items-center gap-3">
+                  <Phone className="h-4 w-4 shrink-0 text-amber-400" />
+                  <span>[PHONE NUMBER PENDING]</span>
+                </li>
+                <li className="flex items-center gap-3">
+                  <Mail className="h-4 w-4 shrink-0 text-amber-400" />
+                  <span>[COMPANY EMAIL PENDING]</span>
+                </li>
+                <li className="flex items-center gap-3">
+                  <Clock className="h-4 w-4 shrink-0 text-amber-400" />
+                  <span>Mon – Sat: 8:00 AM – 6:00 PM</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="overflow-hidden rounded-xl border border-slate-800 bg-slate-900">
+              <iframe
+                title="Workshop Location Near Eliozu Bridge, Port Harcourt"
+                src="https://www.google.com/maps?q=Eliozu+Bridge,+Port+Harcourt,+Rivers&output=embed"
+                className="h-60 w-full border-0"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+              <div className="flex items-center justify-between border-t border-slate-800 px-4 py-3 text-xs text-slate-400">
+                <span>No. 10 Pipeline, Rukpakulushi (Near Eliozu Bridge)</span>
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=Eliozu+Bridge,+Port+Harcourt,+Rivers"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="font-medium text-amber-400 hover:text-amber-300"
+                >
+                  Open in Maps
+                </a>
+              </div>
+            </div>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-4 rounded-xl border border-slate-800 bg-slate-900 p-6">
@@ -266,7 +303,7 @@ export default function App() {
 
             <div>
               <label htmlFor="message" className="block text-sm font-medium text-slate-200">
-                Vehicle & Service Needed
+                Vehicle &amp; Service Needed
               </label>
               <textarea
                 id="message"
@@ -310,6 +347,18 @@ export default function App() {
           <p>No. 10 Pipeline, Rukpakulushi, Port Harcourt, Rivers State</p>
         </div>
       </footer>
+
+      {/* Floating WhatsApp Button */}
+      <a
+        href={WHATSAPP_URL}
+        target="_blank"
+        rel="noreferrer"
+        aria-label="Chat on WhatsApp"
+        className="fixed bottom-5 right-5 z-30 inline-flex items-center gap-2 rounded-full bg-emerald-500 px-4 py-3 text-sm font-semibold text-slate-950 shadow-lg transition hover:bg-emerald-400"
+      >
+        <MessageCircle className="h-4 w-4" />
+        WhatsApp
+      </a>
     </div>
   )
 }
