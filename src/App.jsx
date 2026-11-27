@@ -63,6 +63,27 @@ const standards = [
   },
 ]
 
+const showcaseItems = [
+  {
+    src: '/images/service-bay.jpg',
+    alt: 'Scouch Autos Ltd technicians performing diagnostics and mechanical repairs in Rukpakulushi, Port Harcourt',
+    title: 'Vehicle Servicing & Mechanical Bay',
+    caption: 'Multi-bay diagnostics, routine servicing, and full mechanical repairs.',
+  },
+  {
+    src: '/images/spray-booth.jpg',
+    alt: 'Scouch Autos Ltd oven-baked spray painting booth with technicians',
+    title: 'Oven-Baked Spray Booth',
+    caption: 'Dust-free, controlled refinishing for a durable factory-grade finish.',
+  },
+  {
+    src: '/images/wheel-fleet.jpg',
+    alt: 'Scouch Autos Ltd tyre, wheel alignment, and fleet maintenance area',
+    title: 'Tyre, Wheel & Fleet Maintenance',
+    caption: 'Precision wheel alignment, balancing, and priority fleet turnaround.',
+  },
+]
+
 export default function App() {
   const [status, setStatus] = useState('idle') // 'idle' | 'sending' | 'sent' | 'error'
   const [logoMissing, setLogoMissing] = useState(false)
@@ -121,6 +142,9 @@ export default function App() {
             </a>
             <a href="#services" className="transition hover:text-[#0c2340]">
               Services
+            </a>
+            <a href="#showcase" className="transition hover:text-[#0c2340]">
+              Workshop
             </a>
             <a href="#fleet" className="transition hover:text-[#0c2340]">
               Fleet Care
@@ -255,8 +279,45 @@ export default function App() {
         </div>
       </section>
 
+      {/* Workshop & Spray Booth Showcase */}
+      <section id="showcase" className="border-b border-slate-200 bg-white px-6 py-16 sm:py-20">
+        <div className="mx-auto max-w-7xl">
+          <div className="max-w-2xl">
+            <p className="text-xs font-bold tracking-widest text-red-600 uppercase">Inside the Facility</p>
+            <h2 className="mt-2 text-3xl font-bold tracking-tight text-[#0c2340]">
+              Workshop Bays &amp; Spray Booth
+            </h2>
+            <p className="mt-2 text-slate-600">
+              Equipped servicing bays, an oven-baked spray booth, and dedicated wheel &amp; fleet turnaround capacity in Port Harcourt.
+            </p>
+          </div>
+
+          <div className="mt-10 grid gap-6 md:grid-cols-3">
+            {showcaseItems.map((item) => (
+              <div
+                key={item.title}
+                className="group overflow-hidden rounded-xl border border-slate-200 bg-slate-50 shadow-xs transition hover:-translate-y-0.5 hover:border-red-300 hover:shadow-md"
+              >
+                <div className="overflow-hidden bg-slate-200">
+                  <img
+                    src={item.src}
+                    alt={item.alt}
+                    loading="lazy"
+                    className="h-60 w-full object-cover transition duration-300 group-hover:scale-105"
+                  />
+                </div>
+                <div className="p-5">
+                  <h3 className="font-bold text-[#0c2340]">{item.title}</h3>
+                  <p className="mt-1.5 text-sm leading-relaxed text-slate-600">{item.caption}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Fleet & Corporate Contracts */}
-      <section id="fleet" className="border-b border-slate-200 bg-white px-6 py-16 sm:py-20">
+      <section id="fleet" className="border-b border-slate-200 bg-slate-50 px-6 py-16 sm:py-20">
         <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 rounded-2xl bg-gradient-to-r from-[#0c2340] to-[#163a68] p-8 text-white shadow-lg sm:p-10 lg:flex-row lg:items-center">
           <div className="max-w-2xl">
             <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest text-red-400 uppercase">
@@ -280,7 +341,7 @@ export default function App() {
       </section>
 
       {/* Contact & Enquiry Form */}
-      <section id="contact" className="bg-slate-50 px-6 py-16 sm:py-20">
+      <section id="contact" className="bg-white px-6 py-16 sm:py-20">
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-2">
           <div className="space-y-6">
             <div>
@@ -312,7 +373,7 @@ export default function App() {
               </ul>
             </div>
 
-            <div className="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-xs">
+            <div className="overflow-hidden rounded-xl border border-slate-200 bg-slate-50 shadow-xs">
               <iframe
                 title="Scouch Autos Ltd Location Near Eliozu Bridge, Port Harcourt"
                 src="https://www.google.com/maps?q=Eliozu+Bridge,+Port+Harcourt,+Rivers&output=embed"
@@ -336,7 +397,7 @@ export default function App() {
 
           <form
             onSubmit={handleSubmit}
-            className="space-y-4 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8"
+            className="space-y-4 rounded-2xl border border-slate-200 bg-slate-50 p-6 shadow-sm sm:p-8"
           >
             <div>
               <h3 className="text-xl font-bold text-[#0c2340]">Send a Service or Fleet Enquiry</h3>
@@ -353,7 +414,7 @@ export default function App() {
                 type="text"
                 required
                 placeholder="e.g. Chinedu Obi / Logistics Fleet Manager"
-                className="mt-1.5 w-full rounded-lg border border-slate-300 bg-slate-50 px-3.5 py-2.5 text-sm text-slate-900 focus:border-red-600 focus:bg-white focus:outline-none"
+                className="mt-1.5 w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2.5 text-sm text-slate-900 focus:border-red-600 focus:outline-none"
               />
             </div>
 
@@ -367,7 +428,7 @@ export default function App() {
                 type="text"
                 required
                 placeholder="0815... or name@company.com"
-                className="mt-1.5 w-full rounded-lg border border-slate-300 bg-slate-50 px-3.5 py-2.5 text-sm text-slate-900 focus:border-red-600 focus:bg-white focus:outline-none"
+                className="mt-1.5 w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2.5 text-sm text-slate-900 focus:border-red-600 focus:outline-none"
               />
             </div>
 
@@ -378,7 +439,7 @@ export default function App() {
               <select
                 id="clientType"
                 name="clientType"
-                className="mt-1.5 w-full rounded-lg border border-slate-300 bg-slate-50 px-3.5 py-2.5 text-sm text-slate-900 focus:border-red-600 focus:bg-white focus:outline-none"
+                className="mt-1.5 w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2.5 text-sm text-slate-900 focus:border-red-600 focus:outline-none"
               >
                 <option value="Individual">Individual Vehicle Owner</option>
                 <option value="Company">Company / Corporate</option>
@@ -397,7 +458,7 @@ export default function App() {
                 rows={4}
                 required
                 placeholder="Tell us your vehicle model and what you need (servicing, tyres, spray painting, or fleet contract)..."
-                className="mt-1.5 w-full rounded-lg border border-slate-300 bg-slate-50 px-3.5 py-2.5 text-sm text-slate-900 focus:border-red-600 focus:bg-white focus:outline-none"
+                className="mt-1.5 w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2.5 text-sm text-slate-900 focus:border-red-600 focus:outline-none"
               />
             </div>
 
