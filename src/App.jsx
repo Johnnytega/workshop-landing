@@ -20,6 +20,7 @@ const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent
 )}`
 const DIRECTIONS_URL =
   'https://www.google.com/maps/search/?api=1&query=No+10+Pipeline+Rukpakulushi+Forte+Oil+Station+Eliozu+Bridge+Port+Harcourt'
+const LOGO_SRC = '/images/scouch-logo.jpg'
 
 const services = [
   {
@@ -42,6 +43,7 @@ const services = [
 
 export default function App() {
   const [status, setStatus] = useState('idle') // 'idle' | 'sending' | 'sent' | 'error'
+  const [logoMissing, setLogoMissing] = useState(false)
 
   async function handleSubmit(e) {
     e.preventDefault()
@@ -70,12 +72,20 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100">
+    <div className="min-h-screen bg-[#070d19] text-slate-100">
       {/* Top Navigation */}
-      <header className="sticky top-0 z-20 border-b border-slate-800 bg-slate-950/90 backdrop-blur">
+      <header className="sticky top-0 z-20 border-b border-blue-950 bg-[#070d19]/90 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-          <a href="#top" className="text-lg font-bold tracking-tight text-white">
-            Scouch Autos Ltd
+          <a href="#top" className="flex items-center gap-3 text-lg font-bold tracking-tight text-white">
+            {!logoMissing && (
+              <img
+                src={LOGO_SRC}
+                alt="Scouch Autos Ltd logo"
+                onError={() => setLogoMissing(true)}
+                className="h-9 w-12 rounded border border-red-500/40 object-cover"
+              />
+            )}
+            <span>Scouch Autos Ltd</span>
           </a>
           <nav className="hidden gap-6 text-sm text-slate-300 md:flex">
             <a href="#about" className="transition hover:text-white">
@@ -93,7 +103,7 @@ export default function App() {
           </nav>
           <a
             href="#contact"
-            className="rounded-lg bg-amber-500 px-4 py-2 text-sm font-semibold text-slate-950 transition hover:bg-amber-400"
+            className="rounded-lg bg-red-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-red-500"
           >
             Request Service
           </a>
@@ -103,11 +113,11 @@ export default function App() {
       {/* Hero Banner */}
       <section
         id="top"
-        className="border-b border-slate-800 bg-gradient-to-b from-slate-900 to-slate-950 px-6 py-20"
+        className="border-b border-blue-950 bg-gradient-to-b from-[#0d1d3a] via-[#091428] to-[#070d19] px-6 py-20"
       >
         <div className="mx-auto max-w-4xl">
-          <p className="inline-flex items-center gap-2 rounded-full border border-amber-500/30 bg-amber-500/10 px-3.5 py-1 text-xs font-medium text-amber-300">
-            <MapPin className="h-3.5 w-3.5 shrink-0" />
+          <p className="inline-flex items-center gap-2 rounded-full border border-red-500/40 bg-red-600/15 px-3.5 py-1 text-xs font-medium text-red-200">
+            <MapPin className="h-3.5 w-3.5 shrink-0 text-red-400" />
             No. 10 Pipeline, Rukpakulushi (Behind Forte Oil Station, Near Eliozu Bridge), Port Harcourt
           </p>
           <h1 className="mt-6 text-4xl font-bold tracking-tight text-white sm:text-5xl">
@@ -119,7 +129,7 @@ export default function App() {
           <div className="mt-8 flex flex-wrap gap-4">
             <a
               href="#contact"
-              className="inline-flex items-center gap-2 rounded-lg bg-amber-500 px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-amber-400"
+              className="inline-flex items-center gap-2 rounded-lg bg-red-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-red-500"
             >
               Visit or Enquire <ArrowRight className="h-4 w-4" />
             </a>
@@ -136,7 +146,7 @@ export default function App() {
               href={DIRECTIONS_URL}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-lg border border-slate-700 px-5 py-3 text-sm font-semibold text-slate-200 transition hover:border-slate-500 hover:text-white"
+              className="inline-flex items-center gap-2 rounded-lg border border-blue-800/80 bg-[#0b172e] px-5 py-3 text-sm font-semibold text-slate-100 transition hover:border-red-500/60 hover:text-white"
             >
               Get Directions <ExternalLink className="h-4 w-4" />
             </a>
@@ -145,7 +155,7 @@ export default function App() {
       </section>
 
       {/* About */}
-      <section id="about" className="border-b border-slate-800 px-6 py-16">
+      <section id="about" className="border-b border-blue-950 px-6 py-16">
         <div className="mx-auto grid max-w-6xl items-center gap-10 md:grid-cols-2">
           <div>
             <h2 className="text-2xl font-bold text-white">About Scouch Autos Ltd</h2>
@@ -154,13 +164,13 @@ export default function App() {
             </p>
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
-            <div className="rounded-xl border border-slate-800 bg-slate-900/60 p-5">
-              <Wrench className="h-5 w-5 text-amber-400" />
+            <div className="rounded-xl border border-blue-900/70 bg-[#0b162c] p-5">
+              <Wrench className="h-5 w-5 text-red-400" />
               <h3 className="mt-3 font-semibold text-white">Workshop &amp; Paint Care</h3>
               <p className="mt-1 text-sm text-slate-400">Servicing, tyres, and oven-baked spray painting under one roof.</p>
             </div>
-            <div className="rounded-xl border border-slate-800 bg-slate-900/60 p-5">
-              <ShieldCheck className="h-5 w-5 text-amber-400" />
+            <div className="rounded-xl border border-blue-900/70 bg-[#0b162c] p-5">
+              <ShieldCheck className="h-5 w-5 text-red-400" />
               <h3 className="mt-3 font-semibold text-white">Fleet &amp; Org Contracts</h3>
               <p className="mt-1 text-sm text-slate-400">Built for corporate fleets, businesses, and government vehicles.</p>
             </div>
@@ -169,7 +179,7 @@ export default function App() {
       </section>
 
       {/* Services */}
-      <section id="services" className="border-b border-slate-800 px-6 py-16">
+      <section id="services" className="border-b border-blue-950 px-6 py-16">
         <div className="mx-auto max-w-6xl">
           <h2 className="text-2xl font-bold text-white">Our Services</h2>
           <p className="mt-2 text-sm text-slate-400">
@@ -179,8 +189,9 @@ export default function App() {
             {services.map((item) => (
               <div
                 key={item.title}
-                className="rounded-xl border border-slate-800 bg-slate-900 p-6 transition hover:border-slate-700"
+                className="rounded-xl border border-blue-900/70 bg-[#0b162c] p-6 transition hover:border-red-500/60"
               >
+                <div className="mb-3 h-1 w-10 rounded bg-red-600" />
                 <h3 className="text-lg font-semibold text-white">{item.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-slate-300">{item.desc}</p>
               </div>
@@ -190,19 +201,19 @@ export default function App() {
       </section>
 
       {/* Workshop Showcase / Photo Placeholders */}
-      <section id="showcase" className="border-b border-slate-800 px-6 py-16">
+      <section id="showcase" className="border-b border-blue-950 px-6 py-16">
         <div className="mx-auto max-w-6xl">
           <div>
             <h2 className="text-2xl font-bold text-white">Workshop &amp; Bay Showcase</h2>
             <p className="mt-1 text-sm text-slate-400">
-              Drop final high-resolution workshop and spray-booth photos into <code className="text-amber-300">public/images/</code> when provided.
+              Drop final high-resolution workshop and spray-booth photos into <code className="text-red-300">public/images/</code> when provided.
             </p>
           </div>
           <div className="mt-8 grid gap-6 sm:grid-cols-3">
             {['Service Bay', 'Oven-Baked Spray Booth', 'Tyre & Fleet Drop-Off'].map((label) => (
               <div
                 key={label}
-                className="flex h-52 items-center justify-center rounded-xl border border-dashed border-slate-700 bg-slate-900/50 text-sm font-medium text-slate-400"
+                className="flex h-52 items-center justify-center rounded-xl border border-dashed border-blue-800/80 bg-[#0b162c]/60 text-sm font-medium text-slate-400"
               >
                 {label} Photo Placeholder
               </div>
@@ -222,27 +233,27 @@ export default function App() {
               </p>
               <ul className="mt-6 space-y-4 text-sm text-slate-300">
                 <li className="flex items-start gap-3">
-                  <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-amber-400" />
+                  <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-red-400" />
                   <span>No. 10 Pipeline, Rukpakulushi, behind Forte Oil Station, near Eliozu Bridge, Port Harcourt</span>
                 </li>
                 <li className="flex items-center gap-3">
-                  <Phone className="h-4 w-4 shrink-0 text-amber-400" />
+                  <Phone className="h-4 w-4 shrink-0 text-red-400" />
                   <a href="tel:+2348152205995" className="hover:text-white">
                     +234 815 220 5995
                   </a>
                 </li>
                 <li className="flex items-center gap-3">
-                  <Mail className="h-4 w-4 shrink-0 text-amber-400" />
+                  <Mail className="h-4 w-4 shrink-0 text-red-400" />
                   <span>[COMPANY EMAIL PENDING]</span>
                 </li>
                 <li className="flex items-center gap-3">
-                  <Clock className="h-4 w-4 shrink-0 text-amber-400" />
+                  <Clock className="h-4 w-4 shrink-0 text-red-400" />
                   <span>Mon – Sat: 8:00 AM – 6:00 PM</span>
                 </li>
               </ul>
             </div>
 
-            <div className="overflow-hidden rounded-xl border border-slate-800 bg-slate-900">
+            <div className="overflow-hidden rounded-xl border border-blue-900/70 bg-[#0b162c]">
               <iframe
                 title="Scouch Autos Ltd Location Near Eliozu Bridge, Port Harcourt"
                 src="https://www.google.com/maps?q=Eliozu+Bridge,+Port+Harcourt,+Rivers&output=embed"
@@ -250,13 +261,13 @@ export default function App() {
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               />
-              <div className="flex items-center justify-between border-t border-slate-800 px-4 py-3 text-xs text-slate-400">
+              <div className="flex items-center justify-between border-t border-blue-950 px-4 py-3 text-xs text-slate-400">
                 <span>No. 10 Pipeline, Rukpakulushi (Near Eliozu Bridge)</span>
                 <a
                   href={DIRECTIONS_URL}
                   target="_blank"
                   rel="noreferrer"
-                  className="font-medium text-amber-400 hover:text-amber-300"
+                  className="font-medium text-red-400 hover:text-red-300"
                 >
                   Get Directions
                 </a>
@@ -264,7 +275,7 @@ export default function App() {
             </div>
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-4 rounded-xl border border-slate-800 bg-slate-900 p-6">
+          <form onSubmit={handleSubmit} className="space-y-4 rounded-xl border border-blue-900/70 bg-[#0b162c] p-6">
             <div>
               <label htmlFor="name" className="block text-sm font-medium text-slate-200">
                 Name or Organization
@@ -275,7 +286,7 @@ export default function App() {
                 type="text"
                 required
                 placeholder="e.g. Fleet Manager / Chinedu Obi"
-                className="mt-1 w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-white focus:border-amber-500 focus:outline-none"
+                className="mt-1 w-full rounded-lg border border-blue-900 bg-[#070d19] px-3 py-2 text-sm text-white focus:border-red-500 focus:outline-none"
               />
             </div>
 
@@ -289,7 +300,7 @@ export default function App() {
                 type="text"
                 required
                 placeholder="name@company.com or 0815..."
-                className="mt-1 w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-white focus:border-amber-500 focus:outline-none"
+                className="mt-1 w-full rounded-lg border border-blue-900 bg-[#070d19] px-3 py-2 text-sm text-white focus:border-red-500 focus:outline-none"
               />
             </div>
 
@@ -300,7 +311,7 @@ export default function App() {
               <select
                 id="clientType"
                 name="clientType"
-                className="mt-1 w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-white focus:border-amber-500 focus:outline-none"
+                className="mt-1 w-full rounded-lg border border-blue-900 bg-[#070d19] px-3 py-2 text-sm text-white focus:border-red-500 focus:outline-none"
               >
                 <option value="Individual">Individual Vehicle Owner</option>
                 <option value="Company">Company / Corporate</option>
@@ -319,14 +330,14 @@ export default function App() {
                 rows={3}
                 required
                 placeholder="Servicing, tyres, spray painting, or fleet maintenance request..."
-                className="mt-1 w-full rounded-lg border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-white focus:border-amber-500 focus:outline-none"
+                className="mt-1 w-full rounded-lg border border-blue-900 bg-[#070d19] px-3 py-2 text-sm text-white focus:border-red-500 focus:outline-none"
               />
             </div>
 
             <button
               type="submit"
               disabled={status === 'sending'}
-              className="w-full rounded-lg bg-amber-500 px-4 py-2.5 text-sm font-semibold text-slate-950 transition hover:bg-amber-400 disabled:cursor-not-allowed disabled:opacity-60"
+              className="w-full rounded-lg bg-red-600 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-red-500 disabled:cursor-not-allowed disabled:opacity-60"
             >
               {status === 'sending' ? 'Sending...' : 'Send Enquiry'}
             </button>
@@ -349,7 +360,7 @@ export default function App() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-slate-800 bg-slate-950 px-6 py-8">
+      <footer className="border-t border-blue-950 bg-[#070d19] px-6 py-8">
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 text-xs text-slate-400 sm:flex-row">
           <p>© {new Date().getFullYear()} Scouch Autos Ltd. All rights reserved.</p>
           <p>No. 10 Pipeline, Rukpakulushi, Near Eliozu Bridge, Port Harcourt</p>
