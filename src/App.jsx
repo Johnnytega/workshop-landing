@@ -75,14 +75,14 @@ export default function App() {
     <div className="min-h-screen bg-[#070d19] text-slate-100">
       {/* Top Navigation */}
       <header className="sticky top-0 z-20 border-b border-blue-950 bg-[#070d19]/90 backdrop-blur">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-          <a href="#top" className="flex items-center gap-3 text-lg font-bold tracking-tight text-white">
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-3">
+          <a href="#top" className="flex items-center gap-3.5 text-lg font-bold tracking-tight text-white">
             {!logoMissing && (
               <img
                 src={LOGO_SRC}
                 alt="Scouch Autos Ltd logo"
                 onError={() => setLogoMissing(true)}
-                className="h-9 w-12 rounded border border-red-500/40 object-cover"
+                className="h-11 w-16 shrink-0 rounded-md border border-red-500/50 object-cover sm:h-12 sm:w-20"
               />
             )}
             <span>Scouch Autos Ltd</span>
@@ -103,7 +103,7 @@ export default function App() {
           </nav>
           <a
             href="#contact"
-            className="rounded-lg bg-red-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-red-500"
+            className="shrink-0 rounded-lg bg-red-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-red-500"
           >
             Request Service
           </a>
@@ -156,7 +156,7 @@ export default function App() {
 
       {/* About */}
       <section id="about" className="border-b border-blue-950 px-6 py-16">
-        <div className="mx-auto grid max-w-6xl items-center gap-10 md:grid-cols-2">
+        <div className="mx-auto grid max-w-7xl items-center gap-10 md:grid-cols-2">
           <div>
             <h2 className="text-2xl font-bold text-white">About Scouch Autos Ltd</h2>
             <p className="mt-4 leading-relaxed text-slate-300">
@@ -180,7 +180,7 @@ export default function App() {
 
       {/* Services */}
       <section id="services" className="border-b border-blue-950 px-6 py-16">
-        <div className="mx-auto max-w-6xl">
+        <div className="mx-auto max-w-7xl">
           <h2 className="text-2xl font-bold text-white">Our Services</h2>
           <p className="mt-2 text-sm text-slate-400">
             Tailored automotive solutions for individual drivers, fleets, and institutional accounts.
@@ -202,7 +202,7 @@ export default function App() {
 
       {/* Workshop Showcase / Photo Placeholders */}
       <section id="showcase" className="border-b border-blue-950 px-6 py-16">
-        <div className="mx-auto max-w-6xl">
+        <div className="mx-auto max-w-7xl">
           <div>
             <h2 className="text-2xl font-bold text-white">Workshop &amp; Bay Showcase</h2>
             <p className="mt-1 text-sm text-slate-400">
@@ -224,7 +224,7 @@ export default function App() {
 
       {/* Contact & Enquiry Form */}
       <section id="contact" className="px-6 py-16">
-        <div className="mx-auto grid max-w-6xl gap-10 md:grid-cols-2">
+        <div className="mx-auto grid max-w-7xl gap-10 md:grid-cols-2">
           <div className="space-y-6">
             <div>
               <h2 className="text-2xl font-bold text-white">Visit or Contact Us</h2>
@@ -361,7 +361,7 @@ export default function App() {
 
       {/* Footer */}
       <footer className="border-t border-blue-950 bg-[#070d19] px-6 py-8">
-        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 text-xs text-slate-400 sm:flex-row">
+        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 text-xs text-slate-400 sm:flex-row">
           <p>© {new Date().getFullYear()} Scouch Autos Ltd. All rights reserved.</p>
           <p>No. 10 Pipeline, Rukpakulushi, Near Eliozu Bridge, Port Harcourt</p>
         </div>
